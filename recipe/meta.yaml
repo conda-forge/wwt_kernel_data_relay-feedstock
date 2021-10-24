@@ -16,6 +16,7 @@ build:
 
 requirements:
   host:
+    - jupyter-packaging
     - pip
     - python >=3.7
   run:
@@ -30,7 +31,10 @@ test:
     - wwt_kernel_data_relay
   commands:
     - pip check
+    - jupyter serverextension list 2>&1 |grep 'wwt_kernel_data_relay.*OK'
   requires:
+    - jupyter_core
+    - notebook
     - pip
 
 about:
