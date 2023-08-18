@@ -1,5 +1,5 @@
 {% set name = "wwt_kernel_data_relay" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wwt_kernel_data_relay-{{ version }}.tar.gz
-  sha256: 05ff7579659fb3b08473101da548c23f7c7cb339163e2c17eff0dcbb7003cc51
+  sha256: a48f880f6d5c49bbd699b1e48365c8440ca23c49cde5800e9c232870c7f3515f
 
 build:
   number: 0
