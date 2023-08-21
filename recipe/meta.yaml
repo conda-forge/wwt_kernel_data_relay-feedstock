@@ -1,5 +1,5 @@
 {% set name = "wwt_kernel_data_relay" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wwt_kernel_data_relay-{{ version }}.tar.gz
-  sha256: 05ff7579659fb3b08473101da548c23f7c7cb339163e2c17eff0dcbb7003cc51
+  sha256: a48f880f6d5c49bbd699b1e48365c8440ca23c49cde5800e9c232870c7f3515f
 
 build:
   number: 0
@@ -21,7 +21,7 @@ requirements:
     - python >=3.7
   run:
     - jupyter_client >=7
-    - notebook >=6
+    - jupyter_server >=2
     - python >=3.7
     - tornado >=6
     - traitlets >=5
@@ -31,10 +31,11 @@ test:
     - wwt_kernel_data_relay
   commands:
     - pip check
-    - jupyter serverextension list 2>&1 |grep 'wwt_kernel_data_relay.*OK'
+    - jupyter nbclassic-serverextension list 2>&1 |grep 'wwt_kernel_data_relay.*OK'
   requires:
     - jupyter_core
-    - notebook
+    - jupyter_server
+    - nbclassic
     - pip
 
 about:
