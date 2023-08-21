@@ -21,7 +21,7 @@ requirements:
     - python >=3.7
   run:
     - jupyter_client >=7
-    - notebook >=6
+    - jupyter_server >=2
     - python >=3.7
     - tornado >=6
     - traitlets >=5
@@ -31,10 +31,11 @@ test:
     - wwt_kernel_data_relay
   commands:
     - pip check
-    - jupyter serverextension list 2>&1 |grep 'wwt_kernel_data_relay.*OK'
+    - jupyter nbclassic-serverextension list 2>&1 |grep 'wwt_kernel_data_relay.*OK'
   requires:
     - jupyter_core
-    - notebook
+    - jupyter_server
+    - nbclassic
     - pip
 
 about:
