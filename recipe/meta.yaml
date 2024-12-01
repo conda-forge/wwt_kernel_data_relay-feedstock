@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wwt_kernel_data_relay-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wwt_kernel_data_relay-{{ version }}.tar.gz
   sha256: a48f880f6d5c49bbd699b1e48365c8440ca23c49cde5800e9c232870c7f3515f
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -18,11 +18,11 @@ requirements:
   host:
     - jupyter-packaging
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
     - jupyter_client >=7
     - jupyter_server >=2
-    - python >=3.7
+    - python >={{ python_min }}
     - tornado >=6
     - traitlets >=5
 
@@ -37,6 +37,7 @@ test:
     - jupyter_server
     - nbclassic
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/WorldWideTelescope/wwt_kernel_data_relay/
